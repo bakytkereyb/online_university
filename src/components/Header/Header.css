@@ -1,0 +1,82 @@
+/* Header styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar__container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar__logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f2239;
+  margin: 0;
+  font-family: inherit;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links li a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f2239;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: inherit;
+}
+
+.navbar__links li a:hover {
+  color: #3478f6;
+}
+
+.navbar__button {
+  background-color: #3478f6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: inherit;
+}
+
+.navbar__button:hover {
+  background-color: #2668e5;
+  transform: translateY(-1px);
+}
+
+/* Add some padding to body to account for fixed navbar */
+body {
+  padding-top: 80px;
+} 

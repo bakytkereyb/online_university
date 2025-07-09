@@ -1,0 +1,62 @@
+/* Base heading styles */
+.heading {
+  margin: 0;
+  color: #0f2239;
+  font-family: 'Jost', Arial, Helvetica, sans-serif;
+}
+
+/* H1 - 64px font, 74px line height, Bold 700 */
+.heading--h1 {
+  font-size: 64px;
+  line-height: 74px;
+  font-weight: 700;
+}
+
+/* H2 - 44px font, 54px line height, Bold 700 */
+.heading--h2 {
+  font-size: 44px;
+  line-height: 54px;
+  font-weight: 700;
+}
+
+/* H3 - 36px font, 46px line height, Bold 700 */
+.heading--h3 {
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 700;
+}
+
+/* H4 - 30px font, 40px line height, Semi Bold 600 */
+.heading--h4 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+/* H5 - 24px font, 34px line height, Semi Bold 600 */
+.heading--h5 {
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 600;
+}
+
+/* H6 - 20px font, 30px line height, Semi Bold 600 */
+.heading--h6 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+/* Subtitle S1 - 18px font, 28px line height, Medium 500 */
+.heading--s1 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+/* Subtitle S2 - 16px font, 26px line height, Medium 500 */
+.heading--s2 {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+} 

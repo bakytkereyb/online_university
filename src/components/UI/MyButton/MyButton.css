@@ -1,0 +1,64 @@
+.my-button {
+  padding: 18px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Jost', Arial, Helvetica, sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Primary variant (default blue) */
+.my-button--primary {
+  background-color: #0d5ef4;
+  color: white;
+  border: none;
+}
+
+.my-button--primary:hover {
+  background-color: #0954e0;
+  box-shadow: 0 4px 12px rgba(13, 94, 244, 0.3);
+}
+
+/* Default variant (white with border) */
+.my-button--default {
+  background-color: white;
+  color: #0f2239;
+  border: 1px solid #d0dbe9;
+}
+
+.my-button--default:hover {
+  background-color: #f8fafc;
+  box-shadow: 0 2px 8px rgba(15, 34, 57, 0.1);
+}
+
+/* Error variant (red) */
+.my-button--error {
+  background-color: #f20f10;
+  color: white;
+  border: none;
+}
+
+.my-button--error:hover {
+  background-color: #f53b3c;
+  box-shadow: 0 4px 12px rgba(242, 15, 16, 0.3);
+}
+
+/* Rounded modifier */
+.my-button--rounded {
+  border-radius: 30px;
+}
+
+/* Common states */
+.my-button:active {
+  transform: translateY(1px);
+}
+
+.my-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  border: 1px solid #ccc;
+} 
