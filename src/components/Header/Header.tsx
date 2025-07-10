@@ -1,32 +1,102 @@
+"use client";
+
 import './Header.css';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from 'react';
+import { Flex, Drawer } from "antd";
+import { MenuOutlined } from '@ant-design/icons';
+import Logo from "@/components/Logo";
+import MyButton from "@/components/UI/MyButton";
+import { getMainMenuPages } from "@/config/pages.config";
 
 export default function Header() {
-  return (
-    <nav className="navbar">
-      <div className="navbar__container">
-        <div className="navbar__logo">
-          <Image 
-            src="/globe.svg" 
-            alt="EDURA logo" 
-            width={40} 
-            height={40}
-            priority
-          />
-          <h2>EDURA</h2>
-        </div>
-        
-        <ul className="navbar__links">
-          <li><Link href="/">HOME</Link></li>
-          <li><Link href="/courses">COURSES</Link></li>
-          <li><Link href="/instructor">TEACHERS</Link></li>
-          <li><Link href="/about">ABOUT US</Link></li>
-          <li><Link href="/contact">CONTACTS</Link></li>
-          <li><Link href="#contacts">RU</Link></li>
-        </ul>
-        <Link href="/login" className="navbar__button">LOGIN/REGISTER</Link>
-      </div>
-    </nav>
-  );
+    const [drawerVisible, setDrawerVisible] = useState(false);
+    const mainMenuPages = getMainMenuPages();
+
+    const showDrawer = () => {
+        setDrawerVisible(true);
+    };
+
+    const closeDrawer = () => {
+        setDrawerVisible(false);
+    };
+
+    const handleMenuClick = () => {
+        closeDrawer();
+    };
+
+    return (
+        <Flex className="navbar" align={"center"} justify={"center"}>
+            <Flex className="navbar__container" align={"center"} justify={"space-between"}>
+                {/* Mobile Menu Icon - показывается только в мобильном режиме */}
+                <div className="navbar__menu-icon" onClick={showDrawer}>
+                    <MenuOutlined style={{ fontSize: '24px', color: '#0f2239' }} />
+                </div>
+
+                {/* Logo - скрывается в мобильном режиме */}
+                <div className="navbar__logo navbar__logo--desktop">
+                    <Logo size="medium" />
+                </div>
+
+                {/* Desktop Menu */}
+                <ul className="navbar__links navbar__links--desktop">
+                    {mainMenuPages.map((page) => (
+                        <li key={page.href}>
+                            <Link href={page.href}>{page.name.toUpperCase()}</Link>
+                        </li>
+                    ))}
+                    <li><Link href="#language">RU</Link></li>
+                </ul>
+
+                {/* Desktop Login Button */}
+                <div className="navbar__actions navbar__actions--desktop">
+                    <Link href="/login">
+                        <MyButton primary>
+                            LOGIN/REGISTER
+                        </MyButton>
+                    </Link>
+                </div>
+
+                {/* Mobile Drawer */}
+                <Drawer
+                    placement="left"
+                    closable={true}
+                    onClose={closeDrawer}
+                    open={drawerVisible}
+                    width={280}
+                    className="navbar__drawer"
+                >
+                    <div className="navbar__drawer-content">
+                        {/* Logo в центре содержимого drawer */}
+                        <div className="navbar__drawer-logo">
+                            <Logo size="medium" />
+                        </div>
+
+                        <ul className="navbar__drawer-menu">
+                            {mainMenuPages.map((page) => (
+                                <li key={page.href}>
+                                    <Link href={page.href} onClick={handleMenuClick}>
+                                        {page.name}
+                                    </Link>
+                                </li>
+                            ))}
+                            <li>
+                                <Link href="#language" onClick={handleMenuClick}>
+                                    RU
+                                </Link>
+                            </li>
+                        </ul>
+                        
+                        <div className="navbar__drawer-actions">
+                            <Link href="/login" onClick={handleMenuClick}>
+                                <MyButton primary style={{ width: '100%' }}>
+                                    LOGIN/REGISTER
+                                </MyButton>
+                            </Link>
+                        </div>
+                    </div>
+                </Drawer>
+            </Flex>
+        </Flex>
+    );
 } 
